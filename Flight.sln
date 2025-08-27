@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flight", "Flight\Flight.csproj", "{4379E859-4058-483F-B4F1-6680560DC4E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Test", "Domain.Test\Domain.Test.csproj", "{058EC8F3-770D-4053-89C8-6CA06B93B0F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{FC213E42-DE54-4B41-8D25-E7A5F95FAF0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4379E859-4058-483F-B4F1-6680560DC4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4379E859-4058-483F-B4F1-6680560DC4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4379E859-4058-483F-B4F1-6680560DC4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4379E859-4058-483F-B4F1-6680560DC4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{058EC8F3-770D-4053-89C8-6CA06B93B0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058EC8F3-770D-4053-89C8-6CA06B93B0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058EC8F3-770D-4053-89C8-6CA06B93B0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058EC8F3-770D-4053-89C8-6CA06B93B0F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC213E42-DE54-4B41-8D25-E7A5F95FAF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC213E42-DE54-4B41-8D25-E7A5F95FAF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC213E42-DE54-4B41-8D25-E7A5F95FAF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC213E42-DE54-4B41-8D25-E7A5F95FAF0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE56CB35-1716-46C5-A81B-52B387F4188E}
+	EndGlobalSection
+EndGlobal
