@@ -5,14 +5,18 @@ namespace FlightTest
 {
     public class FlightSpecifications
     {
-        [Fact]
-        public void Booking_reduces_the_number_of_seats()
+        [Theory]
+        [InlineData(3,1,2)]
+        [InlineData(6,3,3)]
+        [InlineData(10,6,4)]
+        [InlineData(10,1,9)]
+        public void Booking_reduces_the_number_of_seats(int seatCapacity,int numberOfSeats,int remainingNumberOfSeats)
         {
-            var flight = new Domain.Flight(seatCapacity:3);
-            flight.Book("nrmeen@c#.com", 1);
-            flight.RemainingNumberOfSeats.Should().Be(2);
+            var flight = new Domain.Flight(seatCapacity:seatCapacity);
+            flight.Book("nrmeen@c#.com", numberOfSeats);
+            flight.RemainingNumberOfSeats.Should().Be(remainingNumberOfSeats);
         }
-        [Fact]
+       /* [Fact]
         public void Booking_reduces_the_number_of_seats_2()
         {
             var flight = new Domain.Flight(seatCapacity: 6);
@@ -25,7 +29,7 @@ namespace FlightTest
             var flight = new Domain.Flight(seatCapacity: 10);
             flight.Book("nrmeen@c#.com", 4);
             flight.RemainingNumberOfSeats.Should().Be(6);
-        }
+        }*/
 
         [Fact]
         public void Avoids_overbooking()
