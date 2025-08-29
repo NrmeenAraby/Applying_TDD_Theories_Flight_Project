@@ -1,4 +1,5 @@
-﻿namespace Domain
+﻿
+namespace Domain
 {
     public class Flight
     {
@@ -7,6 +8,7 @@
         public int RemainingNumberOfSeats{ get; set; }
         public Flight(int seatCapacity)
         {
+
             RemainingNumberOfSeats = seatCapacity;
         }
         public object? Book (string PassengerEmail,int bookedSeats)
@@ -16,6 +18,11 @@
             RemainingNumberOfSeats-= bookedSeats;
             bookingList.Add(new Booking(PassengerEmail, bookedSeats));
             return null;
+        }
+
+        public void CancelBooking(string PassengerEmail, int canceldSeats)
+        {
+            RemainingNumberOfSeats +=canceldSeats ;
         }
     }
 }
