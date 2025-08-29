@@ -51,5 +51,15 @@ namespace FlightTest
             //then 
             error.Should().BeNull();
         }
+        [Fact]
+        public void Remembers_booking()
+        {
+            //given
+            var flight = new Domain.Flight(seatCapacity: 15);
+            //when 
+            flight.Book("n@m.com", 5);
+            //then
+            flight.BookingList.Should().ContainEquivalentOf(new Booking("n@m.com", 5));
+        }
     }
 }
