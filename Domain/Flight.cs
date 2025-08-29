@@ -20,9 +20,12 @@ namespace Domain
             return null;
         }
 
-        public void CancelBooking(string PassengerEmail, int canceldSeats)
+        public object? CancelBooking(string PassengerEmail, int canceldSeats)
         {
+            if(! bookingList.Any(booking=> booking.Email == PassengerEmail))
+                return new OverbookingError();
             RemainingNumberOfSeats +=canceldSeats ;
+            return null;
         }
     }
 }
