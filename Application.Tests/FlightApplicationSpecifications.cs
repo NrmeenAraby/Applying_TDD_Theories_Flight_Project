@@ -9,7 +9,7 @@ namespace Application.Tests
         [Theory]
         [InlineData("n@m.com",2)]
         [InlineData("a@a.com",2)]
-        public void Books_flights(string passengerEmail,int numOfSeats)
+        public void Remembers_Booking(string passengerEmail,int numOfSeats)
         {
             //given
             var entities = new Entities(new DbContextOptionsBuilder<Entities>()
@@ -27,7 +27,7 @@ namespace Application.Tests
         [Theory]
         [InlineData(3)]
         [InlineData(10)]
-        public void Cancels_booking(int initalCapacity)
+        public void Frees_up_seats_after_booking(int initalCapacity)
         {
             //given
             var entities = new Entities(new DbContextOptionsBuilder<Entities>()
