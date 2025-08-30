@@ -20,5 +20,17 @@ namespace Application
             return Entities.flights.Find(flightId)
                 .BookingList.Select(booking => new BookingRm(booking.Email, booking.NumberOfSeats));
         }
+
+        public void CancelBooking(CancelBookingDto cancelBookingDto)
+        {
+            var flight = Entities.flights.Find(cancelBookingDto.FlightId);
+            flight.CancelBooking(cancelBookingDto.PassengerEmail, cancelBookingDto.NumberOfSeats);
+            Entities.SaveChanges();
+        }
+
+        public object GetRemainingNumOfSeats(Guid flightId)
+        {
+            return Entities.flights.Find(flightId).RemainingNumberOfSeats;
+        }
     }
 }

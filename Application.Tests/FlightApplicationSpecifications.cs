@@ -23,8 +23,27 @@ namespace Application.Tests
             //then
             bookingService.FindBookings(flight.Id).Should().ContainEquivalentOf(new BookingRm(passengerEmail, numOfSeats));
         }
-        
-       
-       
+
+        [Theory]
+        [InlineData(3)]
+        [InlineData(10)]
+        public void Cancels_booking(int initalCapacity)
+        {
+            //given
+            var entities = new Entities(new DbContextOptionsBuilder<Entities>()
+                .UseInMemoryDatabase("Flights")
+                .Options);
+            var bookingService = new BookingService(entities: entities);
+            var flight = new Flight(initalCapacity);
+            entities.flights.Add(flight);
+            bookingService.Book(new BookDto(flight.Id,"m@m.com",2));
+            //when 
+            bookingService.CancelBooking( new CancelBookingDto(flight.Id,"m@m.com",2));
+            //Then
+            bookingService.GetRemainingNumOfSeats(flight.Id).Should().Be(initalCapacity);
+        }
+
+
     }
 }
+
