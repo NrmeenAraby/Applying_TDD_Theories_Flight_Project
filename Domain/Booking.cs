@@ -11,6 +11,8 @@ namespace Domain
         public string Email { get; set; }
         public int NumberOfSeats { get; set; }
 
+        [Obsolete("Needed by EF")]
+        protected Booking() { }
         public Booking(string email, int seats)
         {
             Email = email;

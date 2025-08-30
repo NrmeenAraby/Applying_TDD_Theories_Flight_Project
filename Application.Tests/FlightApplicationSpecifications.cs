@@ -1,8 +1,7 @@
 using FluentAssertions;
 using Data;
 using Domain;
-
-using Domain;
+using Microsoft.EntityFrameworkCore;
 namespace Application.Tests
 {
     public class FlightApplicationSpecifications
@@ -10,12 +9,14 @@ namespace Application.Tests
         [Fact]
         public void Books_flights()
         {
-            var entities = new Entities();
+            var entities = new Entities(new DbContextOptionsBuilder<Entities>()
+                .UseInMemoryDatabase("Flights")
+                .Options);
             var flight = new Flight(3);
             entities.flights.Add(flight);
             var bookingService = new BookingService(entities: entities);
-            bookingService.Book(new BookDto(flightId: Guid.NewGuid(), passengerEmail: "a@b.com",numberOfSeats: 2));
-            bookingService.FindBookings().Should().ContainEquivalentOf(new BookingRm("a@b.com", 2));
+            bookingService.Book(new BookDto(flightId: flight.Id, passengerEmail: "a@b.com",numberOfSeats: 2));
+            bookingService.FindBookings(flight.Id).Should().ContainEquivalentOf(new BookingRm("a@b.com", 2));
         }
         public class BookingService
         {
@@ -26,7 +27,7 @@ namespace Application.Tests
             {
 
             }
-            public IEnumerable<BookingRm> FindBookings()
+            public IEnumerable<BookingRm> FindBookings(Guid flightId)
             {
                 return new[] {
                     new BookingRm("a@b.com", 2) 
